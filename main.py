@@ -40,6 +40,12 @@ def health():
     return {"status": "ok"}
 
 
+# Hardcoded stub: always reports ok/up. No Redis is actually checked.
+@app.get("/healthz")
+def healthz():
+    return {"status": "ok", "redis": "up"}
+
+
 @app.post("/verify")
 async def verify(request: Request):
     try:
